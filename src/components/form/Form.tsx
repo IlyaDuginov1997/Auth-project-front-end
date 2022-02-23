@@ -1,7 +1,8 @@
 import React, {ChangeEvent, useState} from 'react'
-import {useDispatch} from 'react-redux'
-import {setIsLoggedInTC, setRegistrationTC} from '../../redux-store/authReducer'
+import {useDispatch, useSelector} from 'react-redux';
+import {InitialStateType, setIsLoggedInTC, setRegistrationTC} from '../../redux-store/authReducer';
 import s from './Form.module.css'
+import {AppRootStateType} from '../../redux-store/Store';
 
 export const Form = () => {
     console.log('Form render')
@@ -9,7 +10,7 @@ export const Form = () => {
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const dispatch = useDispatch()
-    
+
     const changeEmail = (e: ChangeEvent<HTMLInputElement>) => {
         setEmail(e.currentTarget.value)
     }
